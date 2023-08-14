@@ -1,0 +1,105 @@
+:root{
+  --bg-color: #ccccde;
+  --game-bg: rgb(228, 228, 228);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+}
+
+body h1{
+  text-align: center;
+}
+
+.game-frame{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows:  repeat(3, 1fr);
+  gap: 1px;
+  width: 425px;
+  height: 425px;
+  background-color: var(--game-bg);
+  margin-top: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+.square{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: rgba(120,30,199,0.12);
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.square:hover{
+  background-color: rgba(120,30,199,0.3);
+}
+
+.square:active{
+  background-color: rgba(120,30,199,0.3);
+}
+
+.square{
+  background-image: url();
+}
+
+
+.pic{
+  background-image: url(./00001-3164675276.png);
+  background-size: 441px
+}
+
+.pic-1{
+  background-position: 0 0 ;
+}
+
+.pic-2{
+  background-position: -141px 0 ;
+}
+
+.pic-3{
+  background-position: -282px 0 ;
+}
+
+.pic-4{
+  background-position: 0 -141px ;
+}
+
+
+.pic-5{
+  background-position: -141px -141px ;
+}
+
+.pic-6{
+  background-position: -282px -141px ;
+}
+
+.pic-7{
+  background-position: -0px -282px ;
+}
+
+.pic-8{
+  background-position: -141px -282px ;
+}
+
+.pic-9{
+  background-position: -282px -282px ;
+}
