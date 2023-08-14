@@ -19,10 +19,6 @@ body{
   background-color: var(--bg-color);
 }
 
-body h1{
-  text-align: center;
-}
-
 .game-frame{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -31,7 +27,6 @@ body h1{
   width: 425px;
   height: 425px;
   background-color: var(--game-bg);
-  margin-top: 30px;
   border-radius: 30px;
   box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.12);
   overflow: hidden;
@@ -47,6 +42,15 @@ body h1{
   background-color: rgba(120,30,199,0.12);
   cursor: pointer;
   transition: 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  color: white;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.game{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .square:hover{
@@ -102,4 +106,24 @@ body h1{
 
 .pic-9{
   background-position: -282px -282px ;
+}
+
+.game button{
+  width: 120px;
+  height: 60px;
+  border-radius: 60px;
+  border: none;
+  background-color: rgb(100, 100, 255);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  text-transform: uppercase;
+  color: white;
+  box-shadow: 0px 5px 30px rgba(100, 100, 255, 0.4);
+  cursor: pointer;
+  transition: height, width, 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.game button:hover{
+  background-color: rgba(100, 100, 255, 0.5);
 }

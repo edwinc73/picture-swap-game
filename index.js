@@ -1,6 +1,7 @@
 const squares = document.querySelectorAll(".square")
 
 let activeSquares = []
+const squarePostions = ["pic-1","pic-2","pic-3","pic-4","pic-5","pic-6","pic-7","pic-8","pic-9"]
 
 squares.forEach(square => {
   square.addEventListener("click", (e) =>{
@@ -8,6 +9,21 @@ squares.forEach(square => {
     checkMove()
   })
 });
+
+const btn = document.querySelector(".btn")
+
+const startListener = (e) => {
+  const randomOrder = randomize();
+  squares.forEach((square, index) => {
+    square.classList.remove(`pic-${index + 1}`);
+    square.classList.add(randomOrder[index]);
+    console.log(square);
+  });
+
+  btn.removeEventListener("click", startListener);
+};
+
+btn.addEventListener("click", startListener);
 
 // onclick add to active squares
 const activeSquare = (node) => {
@@ -39,7 +55,7 @@ const checkLegal = (arr) => {
 }
 
 const legalMove = (sq1 ,sq2) =>{
-  return (sq1 + 1 == sq2 || sq1 + 4 == sq2 || sq1 + 3 == sq2 || sq1 - 1 == sq2 || sq1 - 4 == sq2 || sq1 - 3 == sq2 || sq2 - 2 == sq1)
+  return ( sq1 + 1 == sq2 || sq1 + 3 == sq2 || sq1 - 1 == sq2 || sq1 - 3 == sq2 )
 }
 
 const removeActive = () => {
@@ -70,3 +86,29 @@ const win = ()=>{
     console.log("yo win")
   }
 }
+
+const randomize = () =>{
+  return squarePostions.sort((a, b) => 0.5 - Math.random());
+}
+
+function startTimer() {
+  let seconds = 0;
+  const timerDisplay = document.querySelector(".btn");
+
+  const updateTimerDisplay = () => {
+    timerDisplay.textContent = formatTime(seconds);
+    seconds++;
+  };
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  const timerInterval = setInterval(updateTimerDisplay, 1000);
+
+  return timerInterval;
+}
+
+const timerInterval = startTimer();
